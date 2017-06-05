@@ -44,7 +44,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'scrooloose/nerdcommenter'
 
 """ Syntastic - Syntax checker
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 
 """ UltiSnips - Snippet engine
 Plugin 'SirVer/ultisnips'
@@ -239,6 +239,10 @@ set shiftwidth=4
 set textwidth=79
 
 
+" Assume 'tex' filetype for '.tex' files
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree plugin settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -272,14 +276,14 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic plugin settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -294,8 +298,8 @@ let g:ctrlp_map = '<leader>p'
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips trigger config
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Let :UltiSnipsEdit split the window
 let g:UltiSnipsEditSplit="vertical"
@@ -333,6 +337,13 @@ let g:tslime_always_current_window = 1
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Surround plugin settings
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom surround environments
+let g:surround_113 = "``\r''"
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
